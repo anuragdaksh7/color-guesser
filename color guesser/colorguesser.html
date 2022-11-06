@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>guess the color</title>
+    <style>
+
+      #container{
+        display: flex;
+        justify-content: center;
+        margin-top: 30vh;
+      }
+
+      #incont{
+        background-color: black;
+        padding: 35px;
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 0px 30px 1px rgba(0 0 0 /99%);
+      }
+
+      #displayy{
+        width: 100%;
+        height: 20vh;
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        margin-bottom: 5vh;
+      }
+
+
+      #inp{
+        font-family: 'Noto Sans Mono', monospace;
+        font-family: 'Nunito', sans-serif;
+        font-size : 20px;
+        height: 5vh;
+        border: none;
+        border-radius: 15px;
+        padding-inline-start: 15px;
+        margin-right: 10px;
+        color: rgba(255, 255, 255, 0.65);
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(5px);
+      }
+
+      #inp:hover{
+        background-color: rgba(255, 255, 255, 0.15);
+        transition: 300ms;
+      }
+
+      #btn{
+        height: 5vh;
+        font-family: 'Noto Sans Mono', monospace;
+        font-family: 'Nunito', sans-serif;
+        border: none;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(5px);
+      }
+
+      #btn:hover{
+        background-color: rgba(255, 255, 255, 0.95);
+        transition: 300ms;
+      }
+
+      #refresh{
+        font-family: 'Noto Sans Mono', monospace;
+        font-family: 'Nunito', sans-serif;
+        width: 100%;
+        margin-top: 2vh;
+        height: 5vh;
+        font-size: 15px;
+        border: none;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.95);
+
+      }
+      #refresh:hover{
+        background-color: rgba(255, 255, 255, 0.65);
+        transition: 300ms;
+      }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@600&family=Nunito:wght@660&display=swap" rel="stylesheet">
+      </head>
+  <body>
+    <div id = "container">
+      <div id="incont">
+        <div id = "displayy">
+        </div>
+        <input type="text" name="aa" value="" id="inp" placeholder="enter color name...">
+        <button type="button" id="btn" onclick="sub()" name="button">check</button>
+        <div id="ref">
+        <button type="button" onclick="reset()" id = "refresh" name="button">Refresh</button>
+        </div>
+      </div>
+    </div>
+    <script defer>
+      body = document.querySelector("body");
+      url = 'https://source.unsplash.com/'+String(window.innerWidth)+"x"+String(window.innerHeight)+'/?landscape'
+      body.style.backgroundImage = "url("+url+")"
+
+
+      function randomNumber() {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+
+      clrs = {
+        1 : ["white" , "rgb(255,255,255)"],
+        2 : ["red" , "rgb(255,0   ,0   )"],
+        3 : ["blue" ,  "rgb(0  ,0  ,255)"],
+        4 : ["green" , "rgb(0  ,255,0  )"],
+        5 : ["grey"  , "rgb(97 ,97 ,97 )"],
+        6 : ["yellow", "rgb(234, 255, 0)"],
+        7 : ["cyan",  "rgb( 0, 255, 255)"],
+        8 : ["orange", "rgb(255, 153, 0)"],
+        9 : ["purple", "rgb(174, 0, 255)"],
+        10: ["pink",   "rgb(255, 0, 212)"],
+
+      };
+
+      min = 1;
+      max = Object.keys(clrs).length;
+      chosed = randomNumber();
+      clrName = clrs[chosed][0];
+      clrCode = clrs[chosed][1];
+
+      panel = document.getElementById("displayy");
+      panel.style.backgroundColor = clrCode;
+
+      function sub(){
+        r = document.getElementById("inp");
+        if (r.value != ""){
+          ll = r.value.toLowerCase();
+          if (ll == clrName){
+            alert("right answer");
+            reset();
+            r.value = "";
+          }
+          else {
+            alert("try again");
+          }
+        }
+        else {
+          alert("please enter a color");
+        }
+      }
+
+
+      function reset() {
+        chosed = randomNumber();
+        clrName = clrs[chosed][0];
+        clrCode = clrs[chosed][1];
+
+        panel = document.getElementById("displayy");
+        panel.style.backgroundColor = clrCode;
+
+      }
+
+    </script>
+  </body>
+</html>

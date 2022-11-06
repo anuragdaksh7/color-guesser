@@ -1,0 +1,76 @@
+
+#container{
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh;
+}
+
+#incont{
+  background-color: black;
+  padding: 35px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 30px 1px rgba(0 0 0 /99%);
+}
+
+#displayy{
+  width: 100%;
+  height: 20vh;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 5vh;
+}
+
+
+#inp{
+  font-family: 'Noto Sans Mono', monospace;
+  font-family: 'Nunito', sans-serif;
+  font-size : 20px;
+  height: 5vh;
+  border: none;
+  border-radius: 15px;
+  padding-inline-start: 15px;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+#inp:hover{
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: 300ms;
+}
+
+#btn{
+  height: 5vh;
+  font-family: 'Noto Sans Mono', monospace;
+  font-family: 'Nunito', sans-serif;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+#btn:hover{
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: 300ms;
+}
+
+#refresh{
+  font-family: 'Noto Sans Mono', monospace;
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+  margin-top: 2vh;
+  height: 5vh;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+
+}
+#refresh:hover{
+  background-color: rgba(255, 255, 255, 0.65);
+  transition: 300ms;
+}
